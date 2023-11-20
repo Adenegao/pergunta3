@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #pergunta {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    #alternativas {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #mensagem {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+  <title>Jogo de Perguntas</title>
+</head>
+<body>
+
+  <div id="pergunta">Em que ano os Estados Unidos estabeleceram uma base aérea em Natal?</div>
+  <div id="alternativas">
+    <button onclick="verificarResposta('A')">A) 1945 </button>
+    <button onclick="verificarResposta('B')">B) 1950 </button>
+    <button onclick="verificarResposta('C')">C) 1942 </button>
+  </div>
+  <div id="mensagem"></div>
+
+  <script>
+    function verificarResposta(resposta) {
+      var mensagem = document.getElementById('mensagem');
+
+      if (resposta === 'C') {
+        mensagem.textContent = 'Você acertou! Pode avançar duas casas.';
+        // Lógica para avançar duas casas aqui
+      } else {
+        mensagem.textContent = 'Você errou! Volte cinco casas.';
+        // Lógica para voltar duas casas aqui
+      }
+    }
+  </script>
+</body>
+</html>
