@@ -37,23 +37,39 @@
 
   <div id="pergunta">Em que ano os Estados Unidos estabeleceram uma base aérea em Natal?</div>
   <div id="alternativas">
-    <button onclick="verificarResposta('A')">A) 1945 </button>
-    <button onclick="verificarResposta('B')">B) 1950 </button>
-    <button onclick="verificarResposta('C')">C) 1942 </button>
+    <button onclick="verificarResposta('A')" id="btnA">A) 1945</button>
+    <button onclick="verificarResposta('B')" id="btnB">B) 1950</button>
+    <button onclick="verificarResposta('C')" id="btnC">C) 1942</button>
   </div>
   <div id="mensagem"></div>
 
   <script>
+    var jogoAtivo = true;
+
     function verificarResposta(resposta) {
+      if (!jogoAtivo) {
+        return;
+      }
+
       var mensagem = document.getElementById('mensagem');
+      var btnA = document.getElementById('btnA');
+      var btnB = document.getElementById('btnB');
+      var btnC = document.getElementById('btnC');
+
+      jogoAtivo = false; // Desativa o jogo após a primeira jogada
 
       if (resposta === 'C') {
         mensagem.textContent = 'Você acertou! Pode avançar duas casas.';
         // Lógica para avançar duas casas aqui
       } else {
-        mensagem.textContent = 'Você errou! Volte cinco casas.';
+        mensagem.textContent = 'Você errou! Volte cinco casas. A correta é letra C';
         // Lógica para voltar duas casas aqui
       }
+
+      // Desativa os botões após a jogada
+      btnA.disabled = true;
+      btnB.disabled = true;
+      btnC.disabled = true;
     }
   </script>
 </body>
